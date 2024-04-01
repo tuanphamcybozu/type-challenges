@@ -30,8 +30,11 @@
 */
 
 /* _____________ Your Code Here _____________ */
-
-type MyPick<T, K> = any
+// keyof: takes the key of the interface and saves it as a union type
+// in: Takes the value of the union type, which is mainly used for the construction of arrays and objects
+type MyPick<T, K extends keyof T> = {
+  [key in K]: T[key]
+}
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
